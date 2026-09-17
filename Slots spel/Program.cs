@@ -1,14 +1,18 @@
 ﻿
-int money = 1500;
-int bet = 0;
+bool gameRunning = true;
 
-bool Slotmachine = true;
+while(gameRunning)
+{
 
-Console.WriteLine("[WARNING] This Slot Machine is not using real money!");
-Console.WriteLine("");
-Console.WriteLine($"Money you got: {money}$");
+    int money = 1500;
+    int bet = 0;
+    bool Slotmachine = true;
 
-while (Slotmachine)
+    Console.WriteLine("[WARNING] This Slot Machine is not using real money!");
+    Console.WriteLine("");
+    Console.WriteLine($"Money you got: {money}$");
+
+   while (Slotmachine)
 {
 Console.WriteLine();
 Console.WriteLine("Choose the amount to bet: 10, 50, 100 or All In");
@@ -28,6 +32,10 @@ else if (choose == "100")
 {
     bet = 100;
 }
+else if (choose =="1000")
+    {
+        bet = 1000;
+    }
 else if (choose == "all in")
 {
     bet = money;
@@ -35,16 +43,13 @@ else if (choose == "all in")
 else
 {
     Console.WriteLine("Invalid choice!");
-    Console.ReadLine();
-    return;
+    continue;
 }
-
 
 if (bet > money)
 {
     Console.WriteLine("You don't have enough money!");
-    Console.ReadLine();
-    return;
+    continue;
 }
 
 money -= bet;
@@ -99,6 +104,28 @@ if (money <= 0)
     Console.WriteLine("GameOver!");
 }
 Console.ReadLine();
+} 
+
+Console.WriteLine();
+Console.WriteLine("Do you want to restart? (y/n)");
+
+string restart = Console.ReadLine().ToLower();
+
+if (restart == "yes" || restart == "y")
+{
+    Console.Clear();
 }
+else
+{
+    gameRunning = false;
+}
+}
+
+Console.Clear();
+Console.WriteLine("Thanks for playing!");
+Console.ReadLine();    
+
+
+
 
 
