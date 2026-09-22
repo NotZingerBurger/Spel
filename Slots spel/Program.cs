@@ -10,7 +10,7 @@ while(gameRunning)
 
     Console.WriteLine("[WARNING] This Slot Machine is not using real money!");
     Console.WriteLine("");
-    Console.WriteLine($"Money you got: {money}$");
+    Console.WriteLine($"Balance: {money}$");
 
    while (Slotmachine)
 {
@@ -54,9 +54,9 @@ if (bet > money)
 
 money -= bet;
 
-int slot1 = Random.Shared.Next(8);
-int slot2 = Random.Shared.Next(8);
-int slot3 = Random.Shared.Next(8);
+int slot1 = Random.Shared.Next(1);
+int slot2 = Random.Shared.Next(1);
+int slot3 = Random.Shared.Next(1);
 int jackpot = Random.Shared.Next(9999999);
 
 Console.WriteLine($"Betting: {bet}$");
@@ -84,12 +84,13 @@ if (slot1 == 7 && slot2 == 7 && slot3 == 7)
     Console.WriteLine("");
     Console.WriteLine("You Hit The Jackpot!");
     Console.WriteLine("");
-    Console.WriteLine($"You Won: {money}$");
+    Console.WriteLine($"You Won: {bet}");
+    Console.WriteLine($"Balance: {money}");
 }
 
 else if (slot1 == slot2 && slot2 == slot3)
         {
-            money = bet *2;
+            money += bet *2;
         }
 
 else
@@ -128,7 +129,7 @@ else
 }
 
 Console.Clear();
-Console.WriteLine("Thanks for playing!");
+Console.WriteLine("Thank you for playing!");
 Console.ReadLine();    
 
 
