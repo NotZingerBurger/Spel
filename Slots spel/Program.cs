@@ -54,14 +54,19 @@ if (bet > money)
 
 money -= bet;
 
-int slot1 = Random.Shared.Next(1);
-int slot2 = Random.Shared.Next(1);
-int slot3 = Random.Shared.Next(1);
+int slot1 = Random.Shared.Next(8);
+int slot2 = Random.Shared.Next(8);
+int slot3 = Random.Shared.Next(8);
+// Testing:
+// int slot1 = Random.Shared.Next(1);
+// int slot2 = Random.Shared.Next(1);
+// int slot3 = Random.Shared.Next(1);
 int jackpot = Random.Shared.Next(9999999);
 
 Console.WriteLine($"Betting: {bet}$");
 Console.WriteLine("Spinning!");
 Console.WriteLine();
+Console.WriteLine("-------------------------");
 
 Thread.Sleep(500);
 Console.Write($"[{slot1}");
@@ -74,7 +79,7 @@ Console.Write($" {slot3}]");
 
 Console.WriteLine();
 Console.WriteLine();
-
+Console.WriteLine("-------------------------");
 
 if (slot1 == 7 && slot2 == 7 && slot3 == 7)
 {
@@ -88,9 +93,23 @@ if (slot1 == 7 && slot2 == 7 && slot3 == 7)
     Console.WriteLine($"Balance: {money}");
 }
 
+else if (slot1 == 6 && slot2 == 6 && slot3 == 6)
+        {
+            money += bet*6;
+            Console.WriteLine("You Hit The DEvil!");
+            Console.WriteLine("");
+        }
+
+else if (slot1 == 5 && slot2 == 5 && slot3 == 5)
+        {
+            money += bet*5;
+            Console.WriteLine("You Hit The DEvil!");
+            Console.WriteLine("");
+        }
+
 else if (slot1 == slot2 && slot2 == slot3)
         {
-            money += bet *2;
+            money += bet*2;
         }
 
 else
