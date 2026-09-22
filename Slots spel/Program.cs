@@ -15,7 +15,7 @@ while(gameRunning)
    while (Slotmachine)
 {
 Console.WriteLine();
-Console.WriteLine("Choose the amount to bet: 10, 50, 100 or All In");
+Console.WriteLine("Choose the amount to bet: 10, 50, 100, 1000 or All In");
 
 string choose = Console.ReadLine();
 choose = choose.ToLower();
@@ -78,7 +78,7 @@ Console.WriteLine();
 
 if (slot1 == 7 && slot2 == 7 && slot3 == 7)
 {
-    money = jackpot;
+    money += jackpot;
 
     Console.WriteLine("!!! JACKPOT !!!");
     Console.WriteLine("");
@@ -86,9 +86,15 @@ if (slot1 == 7 && slot2 == 7 && slot3 == 7)
     Console.WriteLine("");
     Console.WriteLine($"You Won: {money}$");
 }
+
+else if (slot1 == slot2 && slot2 == slot3)
+        {
+            money = bet *2;
+        }
+
 else
 {
-    Console.WriteLine("No jackpot!");
+    Console.WriteLine("No jackpot or win!");
     Console.WriteLine("");
 }
 
